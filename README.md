@@ -1,2 +1,3 @@
 # trophy
-Trophy is my first practice Web application developed in PHP, MySQL, HTML5, CSS and JavaScript. 
+Trophy is my first practice Web application developed in PHP, MySQL, HTML5, CSS and JavaScript.
+Creating this software to maintain and manage Tournaments like Volleyball, cricket...

@@ -26,6 +26,14 @@ function validate_login() {
     return flag;
 
 }
+function confirm_delete(e) {
+
+    var flag = confirm("Are you want to delete");
+    if (!flag) {
+        e.preventDefault();
+    }
+}
+
 
 
 function validate_user_registration() {
@@ -33,8 +41,8 @@ function validate_user_registration() {
     var player_name = form.player_name.value;
     var player_password = form.player_password.value;
     var player_password_confirm = form.player_password_confirm.value;
-   
-    
+
+
 
     var pattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
 
@@ -67,10 +75,9 @@ function validate_user_registration() {
     }
 
     if (flag && player_email.match(pattern)) {
-        flag=true;
-    }
-    else{
-        flag=false;
+        flag = true;
+    } else {
+        flag = false;
     }
 
 

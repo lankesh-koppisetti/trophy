@@ -12,6 +12,7 @@ class Roles extends DB {
 
         $query = "select * from roles where role_id=" . $role_id;
         $runQuery = mysqli_query($this->db, $query);
+        
         $role_name = "";
         if ($runQuery) {
             while ($rs = mysqli_fetch_assoc($runQuery)) {
@@ -20,5 +21,19 @@ class Roles extends DB {
         }
         return $role_name;
     }
+    public function getRoles() {
+        $query = "select * from roles";
+        $runQuery = mysqli_query($this->db, $query);
+        $role = [];
+        if ($runQuery) {
+            while ($rs = mysqli_fetch_assoc($runQuery)) {
+                $role[] = $rs;
+            }
+        }
+        return $role;
+    }
 
 }
+
+
+ 

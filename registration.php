@@ -1,34 +1,40 @@
 <?php
-require_once './includes/db.php';
+require_once './classes/Player.php';
 require_once './classes/Roles.php';
 require_once './classes/Team.php';
 
 //If the form is submitted, proceed the registration.
 //On succesfully registration, redirect the page to login.
-
-
+/*==========get roles=======*/
 $roles = new Roles();
-//$role_name = $roles->getRoleByRoleId($_SESSION['user']['role_id']);
 
+$role = $roles->getRoles();
+$rolesary=$role;
 
-$team=new Team();
-$teamsary[] = $teams;
+/*==========get teams=======*/
 
-//print_r($_SESSION['user']);
+$team = new Team();
+$teams = $team->getTeams();
+
+$teamsary = $teams;
+
+/* ==================== Insert player details ========================= */
+//print_r($_POST);
 
 if (isset($_POST['player_name'])) {
-    $player=new Player();
-    $update=$player->updatePlayer($_SESSION['user']['player_id'], $_POST);
-    
-            
-    if ($update) {
-        //Assigning newly modified Player data into Session again, to keep the new data.
-        $_SESSION['user']=$player->getPlayerById($_SESSION['player_id']);
-        
-        header("location:dashboard.php");
+    $insert_details = new Player();
+   $insert = $insert_details->insertPlayerDetails($_POST);
+    //var_dump($insert);
+    //echo "inserted";
+   
+   
+    if ($insert) {
+       header("location:index.php");
     }
 }
+
 ?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -40,45 +46,45 @@ if (isset($_POST['player_name'])) {
             <?php include_once './includes/navbar.php'; ?>
 
             <main class="container">
-                <!--                <div class="banner_component">
-                                    <img src="images/banner.jpg" alt="Banner"/>
-                                </div>-->
-                <div class="login_component">
+                <div class="banner_component" style="width : 60%">
+                    <img src="images/banner2.jpg        " alt="Banner"/>
+                </div>
+                <div class="login_component "style="width : 40%">
                     <div class="login_text_box">
-                        <h2 class="login_text">Update</h2>
+                        <h2 class="login_text">Register</h2>
                         <span class="login_text_desc">To be part of Tournament.</span>
                     </div>
                     <div class="login_input_box">
                         <form  name="registration_form" onsubmit="return validate_user_registration()"action="<?= $_SERVER['PHP_SELF']; ?>" method="POST">
                             <div class="input-block">
                                 <label class=" label-element">Player name: </label>
-                                <input name="player_name" type="text" value="<?php echo ucfirst($_SESSION['user']['players_name']); ?>" class=" input-box"/> 
+                                <input name="player_name" type="text" class=" input-box"/> 
                             </div>
                             <div class="input-block">
                                 <label class="label-element"> Password : </label>
                                 <input name="player_password" type="text" class="input-box"/> 
                             </div>
                             <div class="input-block">
-                                <label class="label-element"> Reset Password : </label>
+                                <label class="label-element"> Conform Password : </label>
                                 <input name="player_password_confirm" type="text" class="input-box"/> 
                             </div>
                             <div id="registration_validate_message"></div>
                             <div class="input-block">
                                 <label class="label-element"> Player email</label>
-                                <input name="player_email" type="text" value="<?php echo $_SESSION['user']['players_email']; ?> " class="input-box"/> 
+                                <input name="player_email" type="text" class="input-box"/> 
                             </div>
                             <div class="input-block">
                                 <label class="label-element">Player age</label>
-                                <input name="player_age" type="text" value="<?php echo $_SESSION['user']['players_age']; ?>" class="input-box"/> 
+                                <input name="player_age" type="text" class="input-box"/> 
                             </div>
                             <div class="input-block">
                                 <label class="label-element"> Team</label>
                                 <select name="team_id" class="select_box">
-                                    <option value="">Select Team</option>
+                                    <option value="">Select</option>
 
                                     <?php
-                                    foreach ($teamsAry as $team) {
-                                        echo '<option value="' . $team['team_id'] . '" selected>' . $team['team_name'] . '</option>';
+                                    foreach ($teamsary as $team) {
+                                        echo '<option value="' . $team['team_id'] . '">' . $team['team_name'] . '</option>';
                                     }
                                     ?>
 
@@ -90,8 +96,8 @@ if (isset($_POST['player_name'])) {
                                     <option value="">Select Role</option>
 
                                     <?php
-                                    foreach ($rolesAry as $role) {
-                                        echo '<option value="' . $role['role_id'] . '" selected >' . $role['role_name'] . '</option>';
+                                    foreach ($rolesary as $role) {
+                                        echo '<option value="' . $role['role_id'] . '">' . $role['role_name'] . '</option>';
                                     }
                                     ?>
 
@@ -100,12 +106,12 @@ if (isset($_POST['player_name'])) {
 
 
                             <button class="button"> 
-                                Update
+                                Register
                             </button>
                         </form>
                     </div>
                 </div>
-                <a href="dashboard.php"></a>
+                <a href="index.php"></a>
             </main>
             <div class="clearfix"></div>
 

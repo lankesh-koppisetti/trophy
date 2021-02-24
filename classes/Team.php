@@ -16,7 +16,6 @@ class Team extends DB {
                 $team_name = $rs['team_name'];
             }
         }
-
         return $team_name;
     }
 

@@ -1,4 +1,5 @@
 <?php
+
 require_once './classes/Db.php';
 require_once './classes/Player.php';
 //redirect a user if he/she already logged in. 

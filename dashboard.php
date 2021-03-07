@@ -8,7 +8,7 @@ require_once './classes/Schedule.php';
 if (is_null($_SESSION['user'])) {
     header("location:index:php");
 }
-print_r($_SESSION['user']);
+//print_r($_SESSION['user']);
 /* ============================== Coding for Search and Sort ============================ */
 $searchKey = "";
 $sortBy = "";

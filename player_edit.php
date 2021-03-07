@@ -13,8 +13,8 @@ if (!$_SESSION['user']) {
 $playerId = $_GET['player_id'];
 $palyerObj = new Player();
 $playerDetails = $palyerObj->getPlayerById($playerId);
-print_r($playerDetails);
-exit;
+//print_r($playerDetails);
+//exit;
 
 /* ============== Get Team details of given Player  ================ */
 $team = new Team();
@@ -123,7 +123,7 @@ print_r($_FILES['profile_pic']['name']);
 
                                     <?php
                                     foreach ($teamsary as $team) {
-                                        if ($playerDetails['team_id'] == $steam['team_id']) {
+                                        if ($playerDetails['team_id'] == $team['team_id']) {
                                             echo '<option value="' . $team['team_id'] . '" selected="selected">' . $team['team_name'] . '</option>';
                                         } else {
                                             echo '<option value="' . $team['team_id'] . '" >' . $team['team_name'] . '</option>';

@@ -1,0 +1,67 @@
+
+CREATE TABLE `accommodations` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `code` varchar(10) NOT NULL,
+  `description` text DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=latin1;
+
+CREATE TABLE `boards` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `code` varchar(100) NOT NULL,
+  `languageCode` varchar(100) NOT NULL,
+  `content` varchar(100) NOT NULL,
+  `multiLingualCode` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=latin1;
+
+CREATE TABLE `countries` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `code` varchar(256) NOT NULL,
+  `isoCode` varchar(256) NOT NULL,
+  `description` varchar(256) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=403 DEFAULT CHARSET=latin1;
+
+CREATE TABLE `destinations` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `code` varchar(10) NOT NULL,
+  `name` varchar(256) NOT NULL,
+  `countryCode` varchar(10) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4990 DEFAULT CHARSET=latin1;
+
+CREATE TABLE `facilities` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `code` varchar(10) NOT NULL,
+  `facilityGroupCode` varchar(10) NOT NULL,
+  `facilityTypologyCode` int(10) NOT NULL,
+  `description` text NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=407 DEFAULT CHARSET=latin1;
+
+CREATE TABLE `hotels` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `code` varchar(256) NOT NULL,
+  `name` varchar(256) NOT NULL,
+  `slug` varchar(191) NOT NULL,
+  `description` text DEFAULT NULL,
+  `countryCode` varchar(100) NOT NULL,
+  `countryName` varchar(256) NOT NULL,
+  `destinationCode` varchar(10) NOT NULL,
+  `city` varchar(50) NOT NULL,
+  `city_slug` varchar(191) NOT NULL,
+  `images` text DEFAULT NULL,
+  `latitude` decimal(14,12) NOT NULL,
+  `longitude` decimal(14,12) NOT NULL,
+  `ratingStars` varchar(10) NOT NULL,
+  `address` varchar(256) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`id`),
+  KEY `code` (`code`),
+  KEY `name` (`name`),
+  KEY `city` (`city`)
+) ENGINE=InnoDB AUTO_INCREMENT=434712 DEFAULT CHARSET=latin1;

@@ -4,16 +4,15 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/xampp/htdocs/trophy/classes/Player.php</file>
-            <file>file:/C:/xampp/htdocs/trophy/index.php</file>
+            <file>file:/C:/xampp/htdocs/trophy/classes/Team.php</file>
             <file>file:/C:/xampp/htdocs/trophy/dashboard.php</file>
-            <file>file:/C:/xampp/htdocs/trophy/css/main.css</file>
-            <file>file:/C:/xampp/htdocs/trophy/js/validations.js</file>
-            <file>file:/C:/xampp/htdocs/trophy/css/index.php</file>
-            <file>file:/C:/xampp/htdocs/trophy/edit_profile.php</file>
+            <file>file:/C:/xampp/htdocs/trophy/classes/Db.php</file>
             <file>file:/C:/xampp/htdocs/trophy/player_edit.php</file>
-            <file>file:/C:/xampp/htdocs/trophy/registration.php</file>
-            <file>file:/C:/xampp/htdocs/trophy/loginForm.html</file>
-            <file>file:/C:/xampp/htdocs/trophy/player_delete.php</file>
+            <file>file:/C:/xampp/htdocs/trophy/classes/DbPdo.php</file>
+            <file>file:/C:/xampp/htdocs/trophy/pdoexample.php</file>
+            <file>file:/C:/xampp/htdocs/trophy/player_update.php</file>
+            <file>file:/C:/xampp/htdocs/trophy/classes/Roles.php</file>
+            <file>file:/C:/xampp/htdocs/trophy/MyClass.php</file>
         </group>
     </open-files>
 </project-private>

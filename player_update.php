@@ -14,7 +14,7 @@ if(!$_SESSION['user']){
 $playerId = $_SESSION['user']['player_id'];
 $palyerObj = new Player();
 $playerDetails = $palyerObj->getPlayerById($playerId);
-var_dump($playerDetails);
+//var_dump($playerDetails);
 
 
 /* ============== Get Team details of given Player  ================ */
@@ -28,14 +28,10 @@ $role = $roles->getRoles($playerDetails['role_id']);
 $rolesary = $role;
 
 
-
-
-
 //print_r($playerDetails);
 
 if (isset($_POST['player_name'])) {
-
-
+    
     $fileName = $_FILES['profile_pic']['name'];
     $ext = explode(".", $fileName)[1];
     $targetFileName = $_SESSION['user']['player_id'] . "." . $ext;
